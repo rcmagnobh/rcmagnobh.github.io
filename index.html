@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodrigo Magno | Senior Software Engineer</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --accent-color: #58a6ff;
+            --accent-glow: rgba(88, 166, 255, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Banner Header */
+        header {
+            margin-bottom: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Profile Info */
+        .profile-title {
+            text-align: center;
+            margin: 25px 0 15px 0;
+        }
+
+        .profile-title h1 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .profile-title p {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* Badges de Contato */
+        .contact-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .badge-linkedin {
+            background-color: #0077b5;
+            color: #ffffff;
+        }
+
+        .badge-email {
+            background-color: #21262d;
+            color: #ffffff;
+        }
+
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Seções */
+        section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        section h2 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        section h2 i {
+            color: var(--accent-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        /* Destaques em Lista */
+        .highlights-list {
+            list-style: none;
+        }
+
+        .highlights-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .highlights-list li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .highlights-list strong {
+            color: #ffffff;
+        }
+
+        /* Grid de Tecnologias */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tech-card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .tech-card h3 {
+            font-size: 1rem;
+            color: var(--accent-color);
+            font-family: 'Fira Code', monospace;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tech-card ul {
+            list-style: none;
+        }
+
+        .tech-card li {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tech-card li::before {
+            content: "•";
+            color: var(--text-secondary);
+        }
+
+        /* Estatísticas do GitHub */
+        .stats-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .stats-container img {
+            max-height: 150px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .stats-container img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Top Banner -->
+        <header>
+            <img src="https://raw.githubusercontent.com/googleusercontent/image_generation_content/352/watermarked_img_13762395173227705223.png" alt="Rodrigo Magno - Banner" class="banner-img">
+        </header>
+
+        <!-- Profile Title -->
+        <div class="profile-title">
+            <h1>Rodrigo Magno</h1>
+            <p>Senior Software Engineer | Full Stack | Tech Lead | AI Enthusiast</p>
+        </div>
+
+        <!-- Contact Links -->
+        <div class="contact-badges">
+            <a href="https://www.linkedin.com/in/rcmagnobh/" class="badge badge-linkedin" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="mailto:rcmagno@gmail.com" class="badge badge-email">
+                <i class="fas fa-envelope"></i> rcmagno@gmail.com
+            </a>
+        </div>
+
+        <!-- Sobre Mim -->
+        <section id="sobre">
+            <h2><i class="fas fa-user-tie"></i> Sobre Mim</h2>
+            <p>
+                Sou um profissional de tecnologia com **mais de 27 anos de trajetória sólida e consistente**, especializado no desenho, desenvolvimento e otimização de sistemas corporativos de alta performance e missão crítica. Tive o privilégio de transitar por diferentes eras da computação, adquirindo uma visão holística e profunda sobre o ciclo de vida do desenvolvimento de software.
+            </p>
+            <p>
+                Minha abordagem profissional é pautada por engenharia de software limpa, arquiteturas robustas e a busca incessante por eficiência operacional. Atualmente, atuo na convergência entre o desenvolvimento tradicional e as ferramentas modernas de **IA Generativa / Prompt Engineering** para acelerar ciclos de entrega, otimizar code reviews e elevar o nível de qualidade do código entregue.
+            </p>
+        </section>
+
+        <!-- Destaques -->
+        <section id="destaques">
+            <h2><i class="fas fa-star"></i> Destaques Profissionais</h2>
+            <ul class="highlights-list">
+                <li>
+                    <strong>Sistemas de Alta Criticidade:</strong> Desenvolvimento focado em arquiteturas robustas para processamento de alto volume de dados nos setores financeiro, de saúde, ERP e governamental.
+                </li>
+                <li>
+                    <strong>Modernização de Plataformas:</strong> Atuação cirúrgica na transição e redesenho de plataformas legadas complexas (Delphi, ASP) para ecossistemas modernos em microsserviços (.NET Core / C#).
+                </li>
+                <li>
+                    <strong>Liderança Técnica e Agilidade:</strong> Experiência consolidada como Tech Lead e Product Owner, aplicando metodologias ágeis como Scrum e Kanban para otimizar a entrega técnica alinhada aos objetivos de negócio.
+                </li>
+                <li>
+                    <strong>IA Integrada ao SDLC:</strong> Pioneirismo na utilização prática de ferramentas como Cursor IDE, GitHub Copilot, Claude e Gemini para impulsionar a agilidade de codificação e automação de testes.
+                </li>
+            </ul>
+        </section>
+
+        <!-- Stack Tecnológica -->
+        <section id="stack">
+            <h2><i class="fas fa-laptop-code"></i> Stack Tecnológica</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h3><i class="fas fa-server"></i> Backend</h3>
+                    <ul>
+                        <li>C# / .NET Core / .NET Framework</li>
+                        <li>Delphi (Object Pascal)</li>
+                        <li>C++ / Python</li>
+                        <li>REST APIs / Microsserviços</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-card">
+                    <h3><i class="fas fa-code"></i> Frontend & Práticas</h3>
+                    <ul>
+                        <li>ASP.NET MVC / JavaScript</li>
+                        <li>HTML5 / CSS3</li>
+                        <li>Clean Architecture / SOLID / DDD</li>
+                        <li>TDD (Test-Driven Development)</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h3><i class="fas fa-database"></i> Banco de Dados & Infra</h3>
+                    <ul>
+                        <li>SQL Server (T-SQL)</li>
+                        <li>Oracle / PostgreSQL</li>
+                        <li>Docker (Conteinerização)</li>
+                        <li>CI/CD Pipelines / Cloud</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub Stats -->
+        <section id="github">
+            <h2><i class="fab fa-github"></i> Estatísticas de Desenvolvimento</h2>
+            <div class="stats-container">
+                <img src="https://github-readme-stats.vercel.app/api?username=rcmagnobh&show_icons=true&theme=dark&include_all_commits=true" alt="Estatísticas do GitHub" />
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rcmagnobh&layout=compact&theme=dark&hide=css,html,scss" alt="Linguagens mais utilizadas" />
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Rodrigo Magno. Desenvolvido com HTML, CSS e Inteligência Artificial.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
